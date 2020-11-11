@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <avr/io.h>
 #include <util/delay.h>
-#include <avr/interrupt.h>
+
 #include "keypad.h"
 #include "i2cmaster.h"
 #include "i2c_lcd.h"
