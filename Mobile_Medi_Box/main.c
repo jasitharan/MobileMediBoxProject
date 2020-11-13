@@ -2,7 +2,7 @@
  * MobiKit.c
  *
  * Created: 11/8/2020 3:49:30 PM
- * Author : jasit
+ * Author : jasitharan
  */ 
 
 #define F_CPU 8000000UL
@@ -58,10 +58,10 @@ int main(void)
 	
 	lcd_clear();			/* Clear LCD */
 	_delay_ms(2000);
-	lcd_goto_xy(0,0);		/* Enter column and row position */
+	lcd_goto_xy(0,1);		/* Enter column and row position */
 	lcd_puts("WELCOME...." );
 	_delay_ms(2000);
-	lcd_puts_at("Mobile Medi Box",0,1);
+	lcd_puts_at("Mobile Medi Box",1,1);
 	_delay_ms(2000);
 	lcd_clear();
 	_delay_ms(300);
@@ -83,10 +83,10 @@ void getAge()
 	int i = 0;
 	lcd_clear();
 	_delay_ms(100);
-	lcd_goto_xy(0,0);
+	lcd_goto_xy(0,1);
 	lcd_puts("Age: ");
 	_delay_ms(100);
-	lcd_goto_xy(0,1);
+	lcd_goto_xy(1,1);
 	while(1){
 		char *numString;
 		key = waitForKeyPress();
@@ -101,7 +101,7 @@ void getAge()
 		num += keypad_get_number(key);
 		lcd_puts(numString);
 		_delay_ms(100);
-		lcd_goto_xy(i++,1);
+		lcd_goto_xy(1,i++);
 	}
 }
 
@@ -109,9 +109,9 @@ void getAge()
   void getGender()
   {
 	  _delay_ms(100);
-	  lcd_goto_xy(0,0);
+	  lcd_goto_xy(0,1);
 	  lcd_puts("Gender: ");
-	  lcd_puts_at("0.Male 1.Female",0,1);
+	  lcd_puts_at("0.Male 1.Female",1,1);
 	  key = waitForKeyPress();
 	  if (key == BTN_0) gender = 0;
 	  if (key == BTN_1) gender = 1;
@@ -123,9 +123,9 @@ void getAge()
   void sensor()
   {
 	  _delay_ms(100);
-	  lcd_goto_xy(0,0);
+	  lcd_goto_xy(0,1);
 	  lcd_puts("Select: ");
-	  lcd_puts_at("0.T 1.O 2.E 3.H",0,1);
+	  lcd_puts_at("0.T 1.O 2.E 3.H",1,1);
 	  key = waitForKeyPress();
 	  switch(key)
 	  {
@@ -173,7 +173,7 @@ void getAge()
 	  selected = n;
 	  lcd_clear();
 	  _delay_ms(100);
-	  lcd_goto_xy(0,0);
+	  lcd_goto_xy(0,1);
 	  lcd_puts(c);
   }
   
@@ -181,9 +181,9 @@ void getAge()
   {
 	  _delay_ms(2000);
 	  lcd_clear();
-	  lcd_goto_xy(0,0);
+	  lcd_goto_xy(0,1);
 	  lcd_puts("Result: ");
-	  lcd_puts_at(result,0,1);
+	  lcd_puts_at(result,1,1);
 	  _delay_ms(10000);
 	  switch(selected)
 	  {

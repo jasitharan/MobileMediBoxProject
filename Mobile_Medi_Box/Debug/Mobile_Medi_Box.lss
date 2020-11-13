@@ -703,8 +703,8 @@ void getAge()
  420:	00 c0       	rjmp	.+0      	; 0x422 <getAge+0x1e>
  422:	00 00       	nop
 	_delay_ms(100);
-	lcd_goto_xy(0,0);
- 424:	60 e0       	ldi	r22, 0x00	; 0
+	lcd_goto_xy(0,1);
+ 424:	61 e0       	ldi	r22, 0x01	; 1
  426:	80 e0       	ldi	r24, 0x00	; 0
  428:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
 	lcd_puts("Age: ");
@@ -721,9 +721,9 @@ void getAge()
  442:	00 c0       	rjmp	.+0      	; 0x444 <getAge+0x40>
  444:	00 00       	nop
 	_delay_ms(100);
-	lcd_goto_xy(0,1);
+	lcd_goto_xy(1,1);
  446:	61 e0       	ldi	r22, 0x01	; 1
- 448:	80 e0       	ldi	r24, 0x00	; 0
+ 448:	81 e0       	ldi	r24, 0x01	; 1
  44a:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
  44e:	10 e0       	ldi	r17, 0x00	; 0
 			age = num;
@@ -736,7 +736,7 @@ void getAge()
  452:	d0 e0       	ldi	r29, 0x00	; 0
 	lcd_puts("Age: ");
 	_delay_ms(100);
-	lcd_goto_xy(0,1);
+	lcd_goto_xy(1,1);
 	while(1){
 		char *numString;
 		key = waitForKeyPress();
@@ -764,7 +764,7 @@ void getAge()
 		num += keypad_get_number(key);
 		lcd_puts(numString);
 		_delay_ms(100);
-		lcd_goto_xy(i++,1);
+		lcd_goto_xy(1,i++);
 	}
 }
  486:	46 c0       	rjmp	.+140    	; 0x514 <getAge+0x110>
@@ -823,9 +823,9 @@ void getAge()
  4f8:	00 c0       	rjmp	.+0      	; 0x4fa <getAge+0xf6>
  4fa:	00 00       	nop
 		_delay_ms(100);
-		lcd_goto_xy(i++,1);
- 4fc:	61 e0       	ldi	r22, 0x01	; 1
- 4fe:	81 2f       	mov	r24, r17
+		lcd_goto_xy(1,i++);
+ 4fc:	61 2f       	mov	r22, r17
+ 4fe:	81 e0       	ldi	r24, 0x01	; 1
  500:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
  504:	1f 5f       	subi	r17, 0xFF	; 255
 	}
@@ -859,17 +859,17 @@ void getAge()
   void getGender()
   {
 	  _delay_ms(100);
-	  lcd_goto_xy(0,0);
- 532:	60 e0       	ldi	r22, 0x00	; 0
+	  lcd_goto_xy(0,1);
+ 532:	61 e0       	ldi	r22, 0x01	; 1
  534:	80 e0       	ldi	r24, 0x00	; 0
  536:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
 	  lcd_puts("Gender: ");
  53a:	81 e7       	ldi	r24, 0x71	; 113
  53c:	90 e0       	ldi	r25, 0x00	; 0
  53e:	0e 94 6e 01 	call	0x2dc	; 0x2dc <lcd_puts>
-	  lcd_puts_at("0.Male 1.Female",0,1);
+	  lcd_puts_at("0.Male 1.Female",1,1);
  542:	41 e0       	ldi	r20, 0x01	; 1
- 544:	60 e0       	ldi	r22, 0x00	; 0
+ 544:	61 e0       	ldi	r22, 0x01	; 1
  546:	8a e7       	ldi	r24, 0x7A	; 122
  548:	90 e0       	ldi	r25, 0x00	; 0
  54a:	0e 94 8d 01 	call	0x31a	; 0x31a <lcd_puts_at>
@@ -937,8 +937,8 @@ void getAge()
  5be:	00 c0       	rjmp	.+0      	; 0x5c0 <sensorInstruction+0x22>
  5c0:	00 00       	nop
 	  _delay_ms(100);
-	  lcd_goto_xy(0,0);
- 5c2:	60 e0       	ldi	r22, 0x00	; 0
+	  lcd_goto_xy(0,1);
+ 5c2:	61 e0       	ldi	r22, 0x01	; 1
  5c4:	80 e0       	ldi	r24, 0x00	; 0
  5c6:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
 	  lcd_puts(c);
@@ -965,17 +965,17 @@ void getAge()
 	  _delay_ms(2000);
 	  lcd_clear();
  5e8:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <lcd_clear>
-	  lcd_goto_xy(0,0);
- 5ec:	60 e0       	ldi	r22, 0x00	; 0
+	  lcd_goto_xy(0,1);
+ 5ec:	61 e0       	ldi	r22, 0x01	; 1
  5ee:	80 e0       	ldi	r24, 0x00	; 0
  5f0:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
 	  lcd_puts("Result: ");
  5f4:	8a e8       	ldi	r24, 0x8A	; 138
  5f6:	90 e0       	ldi	r25, 0x00	; 0
  5f8:	0e 94 6e 01 	call	0x2dc	; 0x2dc <lcd_puts>
-	  lcd_puts_at(result,0,1);
+	  lcd_puts_at(result,1,1);
  5fc:	41 e0       	ldi	r20, 0x01	; 1
- 5fe:	60 e0       	ldi	r22, 0x00	; 0
+ 5fe:	61 e0       	ldi	r22, 0x01	; 1
  600:	80 91 66 00 	lds	r24, 0x0066	; 0x800066 <result>
  604:	90 91 67 00 	lds	r25, 0x0067	; 0x800067 <result+0x1>
  608:	0e 94 8d 01 	call	0x31a	; 0x31a <lcd_puts_at>
@@ -1170,17 +1170,17 @@ void getAge()
   void sensor()
   {
 	  _delay_ms(100);
-	  lcd_goto_xy(0,0);
- 700:	60 e0       	ldi	r22, 0x00	; 0
+	  lcd_goto_xy(0,1);
+ 700:	61 e0       	ldi	r22, 0x01	; 1
  702:	80 e0       	ldi	r24, 0x00	; 0
  704:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
 	  lcd_puts("Select: ");
  708:	83 e9       	ldi	r24, 0x93	; 147
  70a:	90 e0       	ldi	r25, 0x00	; 0
  70c:	0e 94 6e 01 	call	0x2dc	; 0x2dc <lcd_puts>
-	  lcd_puts_at("0.T 1.O 2.E 3.H",0,1);
+	  lcd_puts_at("0.T 1.O 2.E 3.H",1,1);
  710:	41 e0       	ldi	r20, 0x01	; 1
- 712:	60 e0       	ldi	r22, 0x00	; 0
+ 712:	61 e0       	ldi	r22, 0x01	; 1
  714:	8c e9       	ldi	r24, 0x9C	; 156
  716:	90 e0       	ldi	r25, 0x00	; 0
  718:	0e 94 8d 01 	call	0x31a	; 0x31a <lcd_puts_at>
@@ -1333,8 +1333,8 @@ int main(void)
  7fa:	00 c0       	rjmp	.+0      	; 0x7fc <main+0x2a>
  7fc:	00 00       	nop
 	_delay_ms(2000);
-	lcd_goto_xy(0,0);		/* Enter column and row position */
- 7fe:	60 e0       	ldi	r22, 0x00	; 0
+	lcd_goto_xy(0,1);		/* Enter column and row position */
+ 7fe:	61 e0       	ldi	r22, 0x01	; 1
  800:	80 e0       	ldi	r24, 0x00	; 0
  802:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <lcd_goto_xy>
 	lcd_puts("WELCOME...." );
@@ -1351,9 +1351,9 @@ int main(void)
  81c:	00 c0       	rjmp	.+0      	; 0x81e <main+0x4c>
  81e:	00 00       	nop
 	_delay_ms(2000);
-	lcd_puts_at("Mobile Medi Box",0,1);
+	lcd_puts_at("Mobile Medi Box",1,1);
  820:	41 e0       	ldi	r20, 0x01	; 1
- 822:	60 e0       	ldi	r22, 0x00	; 0
+ 822:	61 e0       	ldi	r22, 0x01	; 1
  824:	8c ef       	ldi	r24, 0xFC	; 252
  826:	90 e0       	ldi	r25, 0x00	; 0
  828:	0e 94 8d 01 	call	0x31a	; 0x31a <lcd_puts_at>
